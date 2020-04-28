@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @Data @Getter @Setter
 public class User {
-	private String name, userid, password, ssn, addr;
+	private String name, userid, password, ssn, addr, profile, email, registerDate;
 	
 	@Override
 	public String toString() {
