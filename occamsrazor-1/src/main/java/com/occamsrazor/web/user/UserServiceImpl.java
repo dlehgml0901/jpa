@@ -24,12 +24,10 @@ public class UserServiceImpl implements UserService{
 	public final static String FILE_PATH = "C:\\Users\\user\\spring-workspace\\occamsrazor\\src\\main\\resources\\static\\user\\";
 	
 	public UserServiceImpl() {
-		map = new HashMap<>();
 	}
 
 	@Override
 	public void add(User user) {
-		map.put(user.getUserid(), user);
 	}
 
 	@Override
