@@ -104,7 +104,7 @@ $('#join_a')
 	.css('cursor', 'pointer')
 	.click(e=>{
 		e.preventDefault()
-		location.href = "member/join.html"
+		location.href = "admin/join.html"
 })
 $('#login_a')
 	.css('cursor', 'pointer')
@@ -136,7 +136,7 @@ $('#login-button').click(e => {
 		contentType: 'application/json',
 		success: d => {
 			if (d === 'SUCCESS') {
-				location.href = '/member/list.html'
+				location.href = '/admin/list.html'
 			}else{
 				alert('다시 로그인 해주세요')
 				location.href = 'index.html'

@@ -83,7 +83,7 @@ footer {
   </nav>
   
   <article>
-	<form action="#">
+	<form>
 	<label>NAME</label><br>
 	<input id="name" type="text"/><br>
 	<label>ID </label><br>
@@ -111,6 +111,7 @@ $('#home_a')
 		location.href = "../index.html"
 	})
 $('#signup-button').click( e=> {
+	e.preventDefault()
 	$.ajax({
 		url: '/user/join',
 		type: 'post',
@@ -123,7 +124,8 @@ $('#signup-button').click( e=> {
 		dataType: 'json',
 		contentType: 'application/json',
 		success: d => {
-			if (d === 'SUCCESS') {				
+			if (d === 'SUCCESS') {	
+				console.log('LOGIN RESULT :: ' + d)
 				location.href='signin.html'
 			}else{
 				location.href='signup.html'

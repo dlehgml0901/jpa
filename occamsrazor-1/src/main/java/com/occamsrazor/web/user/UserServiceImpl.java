@@ -21,7 +21,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
 	private Map<String, Object> map;
-	public final static String FILE_PATH = "C:\\Users\\user\\spring-workspace\\occamsrazor\\src\\main\\resources\\static\\user\\";
 	
 	public UserServiceImpl() {
 		map = new HashMap<>();

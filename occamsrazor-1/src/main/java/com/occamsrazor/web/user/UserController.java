@@ -24,6 +24,7 @@ public class UserController {
 	@PostMapping("/join")
 	public Messenger join(@RequestBody User user) {
 		int count = userService.count();
+		userService.add(user);
 		return (userService.count() == count + 1)? Messenger.SUCCESS : Messenger.FAIL;
 	}
 	
