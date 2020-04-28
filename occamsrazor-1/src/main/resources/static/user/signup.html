@@ -43,7 +43,7 @@ article {
   padding: 20px;
   width: 70%;
   background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed.. */
+  height: 300px; /* only for demonstration, should be removed */
 }
 
 /* Clear floats after the columns */
@@ -83,11 +83,12 @@ footer {
   </nav>
   
   <article>
-	<form>
+	<form action="#">
 	<label>NAME</label><br>
 	<input id="name" type="text"/><br>
 	<label>ID </label><br>
-	<input id="userid" type="text"/><br>
+	<input id="userid" type="text"/>
+	<input id="id-search" type="button" value="중복 체크"/><br>
 	<label>PASSWORD </label><br>
 	<input id="password" type="text"/><br>
 	<label>SSN</label><br>
@@ -110,8 +111,13 @@ $('#home_a')
 		e.preventDefault()
 		location.href = "../index.html"
 	})
-$('#signup-button').click( e=> {
+$('#id-search').click( e=> {
 	e.preventDefault()
+	$.getJSON('/user/idsearch/'+$('#userid').val(), d=>{
+		alert((d === 'SUCCESS')? '사용할 수 있는 아이디 입니다.' : '중복된 아이디 입니다.')
+	})
+})
+$('#signup-button').click( e=> {
 	$.ajax({
 		url: '/user/join',
 		type: 'post',
@@ -124,8 +130,7 @@ $('#signup-button').click( e=> {
 		dataType: 'json',
 		contentType: 'application/json',
 		success: d => {
-			if (d === 'SUCCESS') {	
-				console.log('LOGIN RESULT :: ' + d)
+			if (d === 'SUCCESS') {				
 				location.href='signin.html'
 			}else{
 				location.href='signup.html'

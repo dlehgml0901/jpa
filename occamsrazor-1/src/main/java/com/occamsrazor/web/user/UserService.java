@@ -10,4 +10,5 @@ public interface UserService {
 	public boolean update(User user);
 	public boolean remove(String userid);
 	public List<User> list();
+	public boolean idSearch(String userid);
 }

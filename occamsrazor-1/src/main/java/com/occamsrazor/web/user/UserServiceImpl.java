@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
 	private Map<String, Object> map;
+	public final static String FILE_PATH = "C:\\Users\\user\\spring-workspace\\occamsrazor\\src\\main\\resources\\static\\user\\";
 	
 	public UserServiceImpl() {
 		map = new HashMap<>();
@@ -33,36 +34,28 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int count() {
-		return map.size();
+		return 0;
 	}
 
 	@Override
 	public User login(User user) {
 		User returnUser = null;
-		if (map.containsKey(user.getUserid())) {
-			User u = detail(user.getUserid());
-			if (user.getPassword().equals(u.getPassword())) {
-				returnUser = u;
-			}
-		}
+		
 		return returnUser;
 	}
 
 	@Override
 	public User detail(String userid) {
-		User t = (User) map.get(userid);
-		return t;
+		return null;
 	}
 
 	@Override
 	public boolean update(User user) {
-		map.replace(user.getUserid(), user);
 		return true;
 	}
 
 	@Override
 	public boolean remove(String userid) {
-		map.remove(userid);
 		return true;
 	}
 
@@ -82,5 +75,17 @@ public class UserServiceImpl implements UserService{
 			System.out.println(list.get(i));
 		}
 		return list;
+	}
+	@Override
+	public boolean idSearch(String userid) {
+		boolean ok = true;
+		List<User> list = list();
+		for (int i = 0; i < list.size(); i++) {
+			if (userid.equals(list.get(i).getUserid())) {
+				ok = false;
+				break;
+			}
+		}
+		return ok;
 	}
 }
