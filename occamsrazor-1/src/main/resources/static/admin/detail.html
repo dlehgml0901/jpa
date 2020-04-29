@@ -101,26 +101,8 @@
      $('#menu').css({ width: '80%', height: '50px' }).addClass('border_black center')
      $('#kcdc td').addClass('border_black', 'width_full')
      $('#register_a').css({color: 'blue', cursor: 'none','text-decoration': 'none'})
-     $('#admin_register').click( e=> {
-         e.preventDefault()
-         $.ajax({
-        	 url: '/admins',
-        	 type: 'post',
-        	 data: JSON.stringify({
-        		 name: $('#name').val(),
-        		 position: $('#position').val(),
-        		 email: $('#email').val(),
-        		 phoneNumber: $('#phoneNumber').val()
-        	 }),
-        	 dataType: 'json',
-        	 contentType: 'application/json',
-        	 success: d=>{
-        		 location.href = 'access.html'
-        	 },
-        	 error: (req, s, err) => {
-        		 alert(req.status)
-        	 }
-         })
+     $.getJSON('/admins/'+'1234', d=>{
+    	 
      })
  </script>
 </body>
