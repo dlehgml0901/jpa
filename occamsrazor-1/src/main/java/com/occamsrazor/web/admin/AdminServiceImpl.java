@@ -13,7 +13,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public void register(Admin admin) {
-		System.out.println("2  AdminServiceImpl register" + admin);
+		System.out.println("2  AdminServiceImpl register " + admin);
 		admin.setEmployNumber(createEmployNumber());
 		admin.setPassword("1");
 		admin.setRegisterDate(createCurrentDate());
