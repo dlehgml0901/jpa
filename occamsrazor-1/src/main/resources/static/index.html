@@ -81,6 +81,23 @@
          e.preventDefault()
          location.href = "admin/register.html"
      })
+     $('#access_a').click( e=>{
+    	 $.ajax({
+    		 url: '/admins',
+    		 type: 'post',
+    		 data: stringify({
+    			 
+    		 }),
+    		 dataType: 'json',
+    		 contentType: 'application/json',
+    		 success: d=>{
+    			 
+    		 },
+    		 error: (req, s, err){
+    			 req.status
+    		 }
+    	 })
+     })
  </script>
 </body>
  
