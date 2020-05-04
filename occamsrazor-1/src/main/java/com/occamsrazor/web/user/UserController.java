@@ -32,12 +32,12 @@ public class UserController {
 	public User detail(@PathVariable String userid) {
 		return userService.findOne(userid);
 	}
-	@PutMapping("/{userid")
+	@PutMapping("/{userid}")
 	public Messenger put(@RequestBody User user) {
 		userService.modify(user);
 		return Messenger.SUCCESS;
 	}
-	@DeleteMapping("/{userid")
+	@DeleteMapping("/{userid}")
 	public Messenger delete(@RequestBody User user) {
 		userService.remove(user);
 		return Messenger.SUCCESS;

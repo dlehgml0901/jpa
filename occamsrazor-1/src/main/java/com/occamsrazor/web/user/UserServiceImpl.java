@@ -43,32 +43,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> findAll() {
-		List<User> userlist = new ArrayList<>();
-		List<String> list = new ArrayList<>();
-		try {
-			File file = new File(Data.USER_PATH.toString()+Data.LIST+Data.CSV);
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String message = "";
-			while ((message = reader.readLine()) != null) {
-				list.add(message);
-			}
-			reader.close();
-		} catch (Exception e) {
-			System.out.println(Messenger.FILE_SELECT_ERROR);
-		}
-		User u = null;
-		for (int i = 0; i < list.size(); i++) {
-			u = new User();
-			String[] arr = list.get(i).split(",");
-			u.setUserid(arr[0]);
-			u.setPassword(arr[1]);
-			u.setName(arr[2]);
-			u.setSsn(arr[3]);
-			u.setAddr(arr[4]);
-			userlist.add(u);
-		}
 		return userDao.selectAll();
-//		return userlist;
 	}
 
 	@Override
