@@ -43,16 +43,22 @@
             top: 0;
             width: 100%;
         }
-        #userData {
+        #userData, #items, #admins {
             border: 1px solid black;
             text-align: center;
             margin: 0 auto;
         }
-        #userData tr {
+        #userData tr th, #items tr th, #admins tr th {
+            border: 1px solid black;
+            text-align: center;
+            margin: 0 auto;
+            background-color: yellow
+        }
+        #userData tr, #items tr, #admins tr {
             height: 30px;
             border: 1px solid black;
         }
-        #userData tr td {
+        #userData tr td, #items tr td, #admins tr td {
             width: 150px;
             border: 1px solid black;
         }
@@ -106,9 +112,9 @@
             		<h3 id="total_count" style="margin-bottom: 50px">총 회원수 : </h3>
                 	<div style="margin-bottom: 50px">이름 조회 : <input type="text"/></div>
             		<ul id="side_menu">
-						  <li><a id="user_all" class="active" href="#home">사용자 목록</a></li>
-						  <li><a id="admin_all" href="#news">관리자 목록</a></li>
-						  <li><a href="#contact">음원 차트</a></li>
+						  <li><a id="user_list" style="cursor: pointer">사용자 목록</a></li>
+						  <li><a id="admin_list" style="cursor: pointer">관리자 목록</a></li>
+						  <li><a id="item_list" style="cursor: pointer">분실물 목록</a></li>
 						  <li><a href="#about">앨범 차트</a></li>
 					</ul>
             	
@@ -118,29 +124,28 @@
             	<div id="content" style="width: 1200px; height: 500px;margin: 0 auto">
             		<table id="userData">
                         <tr>
-                            <td>
+                            <th>
                                 <a id="number">No.</a>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <a id="userid">아이디</a>
-                            </td>
-                             <td>
+                            </th>
+                            <th>
                                 <a id="name">이름</a>
-                            </td>
-                           <td>
+                            </th>
+                            <th>
                                 <a id="ssn">주민번호</a>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <a id="email">이메일</a>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <a id="phoneNumber">전화번호</a>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <a id="registerDate">등록일자</a>
-                            </td>
+                            </th>
                         </tr>
-                        
                     </table>
             	</div>
             </td>

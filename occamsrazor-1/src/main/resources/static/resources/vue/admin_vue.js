@@ -62,8 +62,7 @@ const adminVue = {
 			</article>`
 		},
 		adminAll : () =>{
-			return `
-			<table id="adminData">
+			return `<table id="adminData">
                         <tr>
                             <td>
                                 <a id="number">No.</a>

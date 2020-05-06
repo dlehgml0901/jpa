@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao{
 		try {
 			BufferedWriter writer = new BufferedWriter(
 									new FileWriter(
-									new File(Data.USER_PATH.toString()+Data.USER_LIST+Data.CSV), true));
+									new File(Data.USERS.toString()), true));
 			writer.write(user.toString());
 			writer.newLine();
 			writer.flush();
@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao{
 		List<User> userlist = new ArrayList();
 		List<String> list = new ArrayList();
 		try {
-			File file = new File(Data.USER_PATH.toString()+Data.USER_LIST+Data.CSV);
+			File file = new File(Data.USERS.toString());
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String message = "";
 			while((message = reader.readLine()) != null) {
@@ -49,9 +49,9 @@ public class UserDaoImpl implements UserDao{
 			System.out.println(Messenger.FILE_SELECT_ERROR);
 		}
 		User u = null;
-		for (int i = 0; i < list.size(); i++) {
+		for (String s : list) {
 			u = new User();
-			String[] arr = list.get(i).split(",");
+			String[] arr = s.split(",");
 			u.setUserid(arr[0]);
 			u.setPassword(arr[1]);
 			u.setName(arr[2]);
@@ -68,8 +68,15 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public User selectOne(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> list = selectAll();
+		User findUser = null;
+		for (User u : list) { //향상된  for문
+			if (userid.equals(u.getUserid())) {
+				findUser = u;
+				break;
+			}
+		}
+		return findUser;
 	}
 
 	@Override

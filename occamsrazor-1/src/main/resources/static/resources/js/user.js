@@ -69,7 +69,6 @@ user = (()=>{
 		    	.appendTo("#login_box")
 		    	.click(e=>{
 		    		e.preventDefault()
-		    		
 		    	})
 		    })
 		}).fail(()=>{
